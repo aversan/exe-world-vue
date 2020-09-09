@@ -77,6 +77,11 @@
   letter-spacing: 0.004em;
 }
 
+.caption-1-bold {
+  @apply text-xs font-bold;
+  letter-spacing: 0.004em;
+}
+
 .caption-1-all-caps {
   @apply text-xs font-medium uppercase;
   letter-spacing: 0.01em;
