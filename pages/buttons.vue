@@ -202,7 +202,6 @@ import Button from '@/components/shared/button'
 import { Fragment } from 'vue-fragment'
 
 export default {
-  loading: false,
   components: {
     Fragment,
     Button,

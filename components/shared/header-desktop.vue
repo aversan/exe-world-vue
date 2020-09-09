@@ -23,7 +23,7 @@
         </span>
       </span>
       <span class="header-button" role="button">
-        <svgicon class="header-button-icon" name="notifications" />
+        <svgicon class="header-button-icon" name="notification" />
       </span>
       <span class="header-button" role="button">
         <img class="mr-4 rounded-full" width="40" height="40" src="http://placehold.it/40x40" alt="">
@@ -37,7 +37,7 @@
 import ExeLogo from '@/assets/images/exe-logo.svg'
 import '@/components/icons/add'
 import '@/components/icons/wallet'
-import '@/components/icons/notifications'
+import '@/components/icons/notification'
 import '@/components/icons/settings'
 
 export default {
