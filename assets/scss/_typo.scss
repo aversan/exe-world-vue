@@ -1,0 +1,93 @@
+.h1 {
+  @apply text-5xl font-black;
+}
+
+.h2 {
+  @apply text-4xl font-extrabold;
+}
+
+.h3 {
+  @apply text-3xl font-extrabold;
+}
+
+.h4 {
+  @apply text-2xl font-extrabold;
+}
+
+.h5 {
+  @apply text-xl font-extrabold;
+}
+
+.h6 {
+  @apply text-lg font-bold;
+}
+
+.subtitle-1 {
+  @apply text-base font-bold leading-tight;
+  letter-spacing: 0.0015em;
+}
+
+.subtitle-2 {
+  @apply text-base font-semibold leading-tightest;
+  letter-spacing: 0.001em;
+}
+
+.subtitle-2-bold {
+  @apply text-base font-bold leading-tightest;
+  letter-spacing: 0.001em;
+}
+
+.text-body-1 {
+  @apply text-base font-normal leading-normal;
+  letter-spacing: 0.001em;
+}
+
+.text-body-1-medium {
+  @apply text-base font-medium leading-normal;
+  letter-spacing: 0.001em;
+}
+
+.text-body-1-bold {
+  @apply text-base font-bold leading-normal;
+  letter-spacing: 0.007em;
+}
+
+.text-body-2 {
+  @apply text-sm font-normal;
+  letter-spacing: 0.0015em;
+}
+
+.text-body-2-medium {
+  @apply text-sm font-medium;
+  letter-spacing: 0.0015em;
+}
+
+.text-body-2-bold {
+  @apply text-sm font-bold;
+  letter-spacing: 0.0015em;
+}
+
+.caption-1 {
+  @apply text-xs font-normal;
+  letter-spacing: 0.004em;
+}
+
+.caption-1-medium {
+  @apply text-xs font-medium;
+  letter-spacing: 0.004em;
+}
+
+.caption-1-all-caps {
+  @apply text-xs font-medium uppercase;
+  letter-spacing: 0.01em;
+}
+
+.caption-2 {
+  @apply text-xxs font-normal;
+  letter-spacing: 0.01em;
+}
+
+.caption-2\-medium {
+  @apply text-xxs font-medium;
+  letter-spacing: 0.01em;
+}
