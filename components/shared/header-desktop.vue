@@ -7,13 +7,13 @@
     }"
     class=""
   >
-<!--    <ExeLogo-->
-<!--      :class="{-->
-<!--        'flex-shrink-0 fill-current header-logo': true,-->
-<!--        'text-day-violet-primary': theme === 'day',-->
-<!--        'text-night-violet-primary': theme === 'night',-->
-<!--      }"-->
-<!--    />-->
+    <ExeLogo
+      :class="{
+        'flex-shrink-0 fill-current header-logo': true,
+        'text-day-violet-primary': theme === 'day',
+        'text-night-violet-primary': theme === 'night',
+      }"
+    />
     <div class="ml-auto flex flex-no-wrap pr-12 space-x-8 overflow-hidden">
       <span class="header-button" role="button">
         <svgicon class="header-button-icon mr-2" name="wallet" />

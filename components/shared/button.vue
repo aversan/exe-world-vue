@@ -2,15 +2,17 @@
   <component
     :is="tag"
     :class="{
-      button: true,
+      'button text-button-1': true,
       [sizeClassMap[size]]: true,
       [variantClassMap[variant]]: true,
       [themeClassMap[theme]]: true,
-      'button-with-icon': hasIcon,
-      disabled: !isTagButton && disabled,
+      'button-with-icon': hasIcon && hasText,
+      'button-only-icon': hasIcon && !hasText,
+      'button-pill': pill,
+      disabled: disabled && !isTagButton,
       active,
     }"
-    :disabled="isTagButton && disabled"
+    :disabled="disabled && isTagButton"
     :role="role"
   >
     <svgicon v-if="hasIcon" class="button-icon" :name="iconName"></svgicon>
@@ -39,6 +41,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    pill: {
+      type: Boolean,
+      default: false,
+    },
     size: {
       type: String,
       default: 'medium', // big medium
@@ -61,11 +67,16 @@ export default {
       sizeClassMap: {
         big: 'button-big',
         medium: 'button-medium',
+        6: 'button-6 h-6',
+        8: 'button-8 h-8',
+        10: 'button-10 h-10',
+        16: 'button-16 h-16',
       },
       variantClassMap: {
         primary: 'button-primary',
         secondary: 'button-secondary',
         transparent: 'button-transparent',
+        slider: 'button-slider',
       },
       themeClassMap: {
         day: 'button-theme-day',
@@ -76,6 +87,9 @@ export default {
   computed: {
     hasIcon() {
       return !!this.iconName
+    },
+    hasText() {
+      return !!this.text
     },
     isTagButton() {
       return this.tag === 'button'
@@ -89,16 +103,19 @@ export default {
 
 <style lang="scss">
 .button {
-  @apply inline-flex flex-no-wrap items-center uppercase font-extrabold tracking-wider text-sm leading-tightest px-4 justify-center;
+  @apply inline-flex flex-no-wrap items-center px-4 justify-center;
+
+  &:focus {
+    @apply outline-none;
+  }
 
   &.disabled,
   &:disabled {
-    @apply pointer-events-none;
+    @apply pointer-events-none opacity-32;
   }
 
-  &.button-theme-day.disabled,
-  &.button-theme-day:disabled {
-    @apply opacity-32;
+  &-only-icon {
+    @apply px-0;
   }
 
   &-big {
@@ -111,6 +128,10 @@ export default {
         @apply mx-3;
       }
     }
+
+    &.button-only-icon {
+      @apply w-12;
+    }
   }
 
   &-medium {
@@ -121,6 +142,118 @@ export default {
 
       .button-icon {
         @apply mx-2;
+      }
+    }
+
+    &.button-only-icon {
+      @apply w-9;
+
+      .button-icon {
+        &.svg-icon-more-h {
+          @apply w-5 h-5;
+        }
+      }
+    }
+  }
+
+  &-6 {
+    &.button-only-icon {
+      @apply w-6;
+
+      .button-icon {
+        @apply w-4 h-4;
+      }
+    }
+  }
+
+  &-8 {
+    @apply rounded-lg;
+
+    &.button-only-icon {
+      @apply w-8;
+    }
+  }
+
+  &-10 {
+    @apply rounded-lg;
+
+    &.button-only-icon {
+      @apply w-10;
+
+      .button-icon {
+        @apply w-8 h-8;
+      }
+    }
+
+    &.button-slider {
+      @apply h-16;
+
+      &:not(.disabled) {
+        @apply shadow-medium;
+      }
+    }
+  }
+
+  &-16 {
+    @apply rounded-xl;
+
+    &.button-only-icon {
+      @apply w-16;
+
+      .button-icon {
+        @apply w-12 h-12;
+      }
+    }
+
+    &.button-slider {
+      @apply h-22;
+
+      &:not(.disabled) {
+        @apply shadow-big;
+      }
+    }
+  }
+
+  &-slider {
+    &.button-theme-day {
+      @apply bg-black bg-opacity-90 text-white backdrop-blur;
+
+      &:hover,
+      &:focus {
+        @apply bg-day-violet-primary text-white;
+      }
+
+      &:active,
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        @apply bg-day-violet-dark text-white;
+      }
+
+      &:disabled,
+      &.disabled {
+        @apply bg-black bg-opacity-90 text-white;
+      }
+    }
+
+    &.button-theme-night {
+      @apply bg-white bg-opacity-20 text-white backdrop-blur;
+
+      &:hover,
+      &:focus {
+        @apply bg-night-violet-primary text-white;
+      }
+
+      &:active,
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        @apply bg-night-violet-dark text-white;
+      }
+
+      &:disabled,
+      &.disabled {
+        @apply bg-white bg-opacity-20 text-white;
       }
     }
   }
@@ -148,23 +281,23 @@ export default {
     }
 
     &.button-theme-night {
-      @apply bg-day-violet-primary text-white;
+      @apply bg-night-violet-primary text-white;
 
       &:hover,
       &:focus {
-        @apply bg-day-violet-hover text-white;
+        @apply bg-night-violet-hover text-white;
       }
 
       &:active,
       &.active,
       &.active:hover,
       &.active:focus {
-        @apply bg-day-violet-dark text-white;
+        @apply bg-night-violet-dark text-white;
       }
 
       &:disabled,
       &.disabled {
-        @apply bg-day-violet-primary text-white;
+        @apply bg-night-violet-primary text-white;
       }
     }
   }
@@ -190,27 +323,52 @@ export default {
         @apply bg-day-violet-primary bg-opacity-15 text-day-violet-primary;
       }
     }
+
+    &.button-theme-night {
+      @apply bg-day-violet-primary bg-opacity-15 text-night-violet-primary;
+
+      &:hover,
+      &:focus {
+        @apply bg-day-violet-primary bg-opacity-20 text-night-violet-primary;
+      }
+
+      &:active,
+      &.active,
+      &.active:hover,
+      &.active:focus {
+        @apply bg-night-violet-dark text-white text-opacity-90;
+      }
+
+      &:disabled,
+      &.disabled {
+        @apply bg-day-violet-primary bg-opacity-15 text-night-violet-primary;
+      }
+    }
   }
 
   &-transparent {
-    @apply bg-day-violet-primary bg-opacity-15 text-day-violet-primary;
+    @apply bg-white bg-opacity-20 text-white backdrop-blur;
 
     &:hover,
     &:focus {
-      @apply bg-day-violet-primary bg-opacity-20 text-day-violet-primary;
+      @apply bg-white bg-opacity-30 text-white;
     }
 
     &:active,
     &.active,
     &.active:hover,
     &.active:focus {
-      @apply bg-day-violet-dark text-white;
+      @apply bg-white bg-opacity-10 text-white;
     }
 
     &:disabled,
     &.disabled {
-      @apply bg-day-violet-primary bg-opacity-15 text-day-violet-primary;
+      @apply bg-white bg-opacity-20 text-white;
     }
+  }
+
+  &-pill {
+    @apply rounded-full;
   }
 }
 </style>

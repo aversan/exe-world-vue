@@ -87,7 +87,16 @@
   letter-spacing: 0.01em;
 }
 
-.caption-2\-medium {
+.caption-2-medium {
   @apply text-xxs font-medium;
   letter-spacing: 0.01em;
 }
+
+.text-button-1 {
+  @apply uppercase font-extrabold tracking-wider text-sm leading-4;
+}
+
+.text-button-2 {
+  @apply uppercase font-extrabold tracking-wider text-xs leading-4;
+}
+

@@ -25,6 +25,17 @@ module.exports = {
       // lg: '1024px',
       xl: '1280px',
     },
+    filter: {
+      // defaults to {}
+      // 'none': 'none',
+      // 'grayscale': 'grayscale(1)',
+      // 'invert': 'invert(1)',
+      // 'sepia': 'sepia(1)',
+    },
+    backdropFilter: {
+      none: 'none',
+      blur: 'blur(36px)',
+    },
     typography: (theme) => ({
       default: {
         css: {
@@ -253,7 +264,7 @@ module.exports = {
       6: '1.5rem', // 24px
       8: '2rem', // 32px
       9: '2.25rem', // 36px
-      // 10: '2.5rem',
+      10: '2.5rem', // 40px
       12: '3rem', // 48px
       14: '3.5rem', // 56px
       16: '4rem', // 64px
@@ -331,22 +342,19 @@ module.exports = {
       //   4: '4px',
       //   8: '8px',
     },
-    // boxShadow: {
-    //   xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
-    //   sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-    //   default:
-    //     '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
-    //   md:
-    //     '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
-    //   lg:
-    //     '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
-    //   xl:
-    //     '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-    //   '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-    //   inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
-    //   outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-    //   none: 'none',
-    // },
+    boxShadow: {
+      small:
+        '0px 10px 20px rgba(0, 0, 0, 0.1), 0px 3px 14.9653px rgba(0, 0, 0, 0.0949616), 0px 1px 4.45557px rgba(0, 0, 0, 0.0648379)',
+      medium:
+        '0px 64px 67px rgba(0, 0, 0, 0.17), 0px 14.2952px 14.9653px rgba(0, 0, 0, 0.0949616), 0px 4.25607px 4.45557px rgba(0, 0, 0, 0.0648379)',
+      big:
+        '0px 73px 80px rgba(0, 0, 0, 0.16), 0px 21.7759px 22.2849px rgba(0, 0, 0, 0.104254), 0px 8.77232px 9.13387px rgba(0, 0, 0, 0.08), 0px 3.04067px 3.40764px rgba(0, 0, 0, 0.0557458)',
+      // inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+      // outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
+      menu:
+        '0px 40px 67px rgba(0, 0, 0, 0.17), 0px 6.3px 14.9653px rgba(0, 0, 0, 0.0949616), 0px 1px 4.45557px rgba(0, 0, 0, 0.0648379)',
+      none: 'none',
+    },
     // container: {},
     // cursor: {
     //   auto: 'auto',
@@ -497,7 +505,7 @@ module.exports = {
       //   relaxed: '1.625',
       //   loose: '2',
       //   3: '.75rem',
-      //   4: '1rem',
+      4: '1rem',
       //   5: '1.25rem',
       //   6: '1.5rem',
       //   7: '1.75rem',
@@ -539,10 +547,12 @@ module.exports = {
     //   full: '100%',
     //   screen: '100vh',
     // },
-    // minWidth: {
-    //   0: '0',
-    //   full: '100%',
-    // },
+    minWidth: (theme) => ({
+      0: '0',
+      6: theme('spacing.6'),
+      8: theme('spacing.8'),
+      full: '100%',
+    }),
     // objectPosition: {
     //   bottom: 'bottom',
     //   center: 'center',
@@ -867,6 +877,8 @@ module.exports = {
     // },
   },
   variants: {
+    filter: [],
+    backdropFilter: [],
     typography: [],
     // accessibility: ['responsive', 'focus'],
     // alignContent: ['responsive'],
@@ -983,6 +995,7 @@ module.exports = {
     preflight: true,
   },
   plugins: [
+    require('tailwindcss-filters'),
     require('tailwindcss-aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/custom-forms'),
