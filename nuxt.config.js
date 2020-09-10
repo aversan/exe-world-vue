@@ -64,14 +64,6 @@ export default {
   },
   module: {
     rules: [
-      {
-        test: /\.svg$/,
-        use: [
-          {
-            loader: 'vue-svg-loader',
-          },
-        ],
-      },
       // {
       //   test: /\.vue$/,
       //   use: [
@@ -132,18 +124,18 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
-  // build: {
-  //   extend: (config) => {
-  //     const svgRule = config.module.rules.find((rule) =>
-  //       rule.test.test('.svg')
-  //     );
-  //
-  //     svgRule.test = /\.(png|jpe?g|gif|webp)$/;
-  //
-  //     config.module.rules.push({
-  //       test: /\.svg$/,
-  //       use: ['vue-svg-loader'],
-  //     });
-  //   },
-  // },
+  build: {
+    extend: (config) => {
+      const svgRule = config.module.rules.find((rule) =>
+        rule.test.test('.svg')
+      );
+
+      svgRule.test = /\.(png|jpe?g|gif|webp)$/;
+
+      config.module.rules.push({
+        test: /\.svg$/,
+        use: ['vue-svg-loader'],
+      });
+    },
+  },
 }

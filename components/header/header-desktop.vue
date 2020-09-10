@@ -1,32 +1,37 @@
 <template>
   <div
     :class="{
-      'header header-desktop container h-22 flex flex-no-wrap items-center mx-auto border-b justify-between pl-12': true,
-      'bg-white border-day-grey-medium header-theme-day': theme === 'day',
-      'bg-elevation-01 border-white border-opacity-20 header-theme-night': theme === 'night',
+      'header-desktop h-22 flex flex-no-wrap items-center border-b justify-between pl-12 flex-shrink-0 rounded-tl-2xl': true,
+      [themeClassMap[theme]]: true,
     }"
-    class=""
   >
     <ExeLogo
-      :class="{
-        'flex-shrink-0 fill-current header-logo': true,
-        'text-day-violet-primary': theme === 'day',
-        'text-night-violet-primary': theme === 'night',
-      }"
+      :class="`flex-shrink-0 fill-current header-logo text-${theme}-violet-primary`"
     />
     <div class="ml-auto flex flex-no-wrap pr-12 space-x-8 overflow-hidden">
       <span class="header-button" role="button">
         <svgicon class="header-button-icon mr-2" name="wallet" />
         <span class="header-button-text text-body-2-medium">$150</span>
-        <span :class="`rounded-full bg-${theme}-violet-primary h-6 ml-2 inline-flex items-center`">
+        <span
+          :class="`rounded-full bg-${theme}-violet-primary h-6 ml-2 inline-flex items-center`"
+        >
           <svgicon class="text-white" name="add" />
         </span>
       </span>
       <span class="header-button" role="button">
-        <svgicon class="header-button-icon" name="notification" />
+        <BadgeContainer>
+          <svgicon class="header-button-icon" name="notification" />
+          <Badge bordered text="2" :theme="theme" position="top" />
+        </BadgeContainer>
       </span>
       <span class="header-button" role="button">
-        <img class="mr-4 rounded-full" width="40" height="40" src="http://placehold.it/40x40" alt="">
+        <img
+          class="mr-4 rounded-full w-10 h-10 object-cover"
+          width="40"
+          height="40"
+          src="http://placehold.it/40x40"
+          alt=""
+        />
         <span class="header-button-text subtitle-1">Alex Smith</span>
         <svgicon class="header-button-icon ml-4" name="settings" />
       </span>
@@ -39,21 +44,29 @@ import '@/components/icons/add'
 import '@/components/icons/wallet'
 import '@/components/icons/notification'
 import '@/components/icons/settings'
+import { BadgeContainer, Badge } from '@/components/badge/index'
 
 export default {
   components: {
     ExeLogo,
-  },
-  data() {
-    return {
-      hideMenu: true,
-    }
+    BadgeContainer,
+    Badge,
   },
   props: {
     theme: {
       type: String,
       default: 'day',
     },
+  },
+  data() {
+    return {
+      themeClassMap: {
+        day: 'bg-white border-day-grey-medium border-opacity-56 header-theme-day',
+        night:
+          'bg-elevation-01 border-white border-opacity-20 header-theme-night',
+      },
+      hideMenu: true,
+    }
   },
 }
 </script>
@@ -78,10 +91,7 @@ export default {
         @apply bg-day-violet-primary bg-opacity-15;
       }
 
-      &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
+      &:active {
         @apply bg-day-violet-primary bg-opacity-20;
       }
     }
@@ -109,10 +119,7 @@ export default {
         @apply bg-night-violet-primary bg-opacity-15;
       }
 
-      &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
+      &:active {
         @apply bg-night-violet-primary bg-opacity-20;
       }
     }

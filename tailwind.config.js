@@ -24,6 +24,7 @@ module.exports = {
       md: '768px',
       // lg: '1024px',
       xl: '1280px',
+      xxl: '1980px',
     },
     filter: {
       // defaults to {}
@@ -108,6 +109,7 @@ module.exports = {
         // 600: '#718096',
         650: '#556980',
         // 700: '#4a5568',
+        750: '#3D3C42',
         800: '#27262D',
         // 900: '#1a202c',
       },
@@ -255,20 +257,23 @@ module.exports = {
     spacing: {
       px: '1px',
       0: '0',
+      '0_5': '0.125rem', // 2px
       1: '0.25rem', // 4px
       2: '0.5rem', // 8px
       '2_5': '0.625rem', // 10px
       3: '0.75rem', // 12px
+      '3_5': '0.875rem', // 14px
       4: '1rem', // 16px
       5: '1.25rem', // 20px
       6: '1.5rem', // 24px
       8: '2rem', // 32px
       9: '2.25rem', // 36px
       10: '2.5rem', // 40px
+      11: '2.75rem', // 44px
       12: '3rem', // 48px
       14: '3.5rem', // 56px
       16: '4rem', // 64px
-      // 20: '5rem',
+      20: '5rem', // 80px
       22: '5.5rem', // 88px
       24: '6rem', // 96px
       // 32: '8rem',
@@ -278,6 +283,8 @@ module.exports = {
       // 64: '16rem',
     },
     backgroundColor: (theme) => ({
+      transparent: theme('colors.transparent'),
+      'grey-750': theme('colors.gray.750'),
       white: theme('colors.white'),
       black: theme('colors.black'),
       ...theme('colorsElevation'),
@@ -321,6 +328,7 @@ module.exports = {
     borderColor: (theme) => ({
       white: theme('colors.white'),
       black: theme('colors.black'),
+      'grey-750': theme('colors.gray.750'),
       ...theme('colorsDay'),
       ...theme('colorsNight'),
       default: theme('colors.gray.550', 'currentColor'),
@@ -329,10 +337,11 @@ module.exports = {
     borderRadius: {
       none: '0',
       //   sm: '0.125rem',
-      //   default: '0.25rem',
+      default: '0.25rem', // 4px
       //   md: '0.375rem',
-      lg: '0.5rem',
-      xl: '0.75rem',
+      lg: '0.5rem', // 8px
+      xl: '0.75rem', // 12px
+      '2xl': '1.5rem', // 24px
       full: '9999px',
     },
     borderWidth: {
@@ -355,7 +364,9 @@ module.exports = {
         '0px 40px 67px rgba(0, 0, 0, 0.17), 0px 6.3px 14.9653px rgba(0, 0, 0, 0.0949616), 0px 1px 4.45557px rgba(0, 0, 0, 0.0648379)',
       none: 'none',
     },
-    // container: {},
+    container: {
+      center: true,
+    },
     // cursor: {
     //   auto: 'auto',
     //   default: 'default',
@@ -371,20 +382,20 @@ module.exports = {
     fill: {
       current: 'currentColor',
     },
-    // flex: {
-    //   1: '1 1 0%',
-    //   auto: '1 1 auto',
-    //   initial: '0 1 auto',
-    //   none: 'none',
-    // },
-    // flexGrow: {
-    //   0: '0',
-    //   default: '1',
-    // },
-    // flexShrink: {
-    //   0: '0',
-    //   default: '1',
-    // },
+    flex: {
+      1: '1 1 0%',
+      auto: '1 1 auto',
+      initial: '0 1 auto',
+      none: 'none',
+    },
+    flexGrow: {
+      0: '0',
+      default: '1',
+    },
+    flexShrink: {
+      0: '0',
+      default: '1',
+    },
     fontFamily: {
       sans: [
         'Raleway',
@@ -616,6 +627,7 @@ module.exports = {
     textColor: (theme) => ({
       white: theme('colors.white'),
       black: theme('colors.black'),
+      'grey-750': theme('colors.gray.750'),
       ...theme('colorsDay'),
       ...theme('colorsNight'),
     }),
@@ -794,14 +806,14 @@ module.exports = {
     //   90: '90deg',
     //   180: '180deg',
     // },
-    // translate: (theme, { negative }) => ({
-    //   ...theme('spacing'),
-    //   ...negative(theme('spacing')),
-    //   '-full': '-100%',
-    //   '-1/2': '-50%',
-    //   '1/2': '50%',
-    //   full: '100%',
-    // }),
+    translate: (theme, { negative }) => ({
+      ...theme('spacing'),
+      ...negative(theme('spacing')),
+      '-full': '-100%',
+      '-1/2': '-50%',
+      '1/2': '50%',
+      full: '100%',
+    }),
     // skew: {
     //   '-12': '-12deg',
     //   '-6': '-6deg',

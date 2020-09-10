@@ -198,8 +198,8 @@
 </template>
 
 <script>
-import Button from '@/components/shared/button'
 import { Fragment } from 'vue-fragment'
+import Button from '@/components/button/button'
 
 export default {
   components: {

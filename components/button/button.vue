@@ -220,19 +220,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-day-violet-primary text-white;
+        @apply bg-day-violet-primary;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
-        @apply bg-day-violet-dark text-white;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-black bg-opacity-90 text-white;
+      &.active {
+        @apply bg-day-violet-dark;
       }
     }
 
@@ -241,19 +234,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-night-violet-primary text-white;
+        @apply bg-night-violet-primary;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
-        @apply bg-night-violet-dark text-white;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-white bg-opacity-20 text-white;
+      &.active {
+        @apply bg-night-violet-dark;
       }
     }
   }
@@ -264,19 +250,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-day-violet-hover text-white;
+        @apply bg-day-violet-hover;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
-        @apply bg-day-violet-dark text-white;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-day-violet-primary text-white;
+      &.active {
+        @apply bg-day-violet-dark;
       }
     }
 
@@ -285,19 +264,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-night-violet-hover text-white;
+        @apply bg-night-violet-hover;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
-        @apply bg-night-violet-dark text-white;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-night-violet-primary text-white;
+      &.active {
+        @apply bg-night-violet-dark;
       }
     }
   }
@@ -308,19 +280,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-day-violet-primary bg-opacity-20 text-day-violet-primary;
+        @apply bg-opacity-20;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
+      &.active {
         @apply bg-day-violet-dark text-white;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-day-violet-primary bg-opacity-15 text-day-violet-primary;
       }
     }
 
@@ -329,19 +294,12 @@ export default {
 
       &:hover,
       &:focus {
-        @apply bg-day-violet-primary bg-opacity-20 text-night-violet-primary;
+        @apply bg-opacity-20;
       }
 
       &:active,
-      &.active,
-      &.active:hover,
-      &.active:focus {
+      &.active {
         @apply bg-night-violet-dark text-white text-opacity-90;
-      }
-
-      &:disabled,
-      &.disabled {
-        @apply bg-day-violet-primary bg-opacity-15 text-night-violet-primary;
       }
     }
   }
@@ -351,19 +309,14 @@ export default {
 
     &:hover,
     &:focus {
-      @apply bg-white bg-opacity-30 text-white;
+      @apply bg-opacity-30;
     }
 
     &:active,
     &.active,
     &.active:hover,
     &.active:focus {
-      @apply bg-white bg-opacity-10 text-white;
-    }
-
-    &:disabled,
-    &.disabled {
-      @apply bg-white bg-opacity-20 text-white;
+      @apply bg-opacity-10;
     }
   }
 
