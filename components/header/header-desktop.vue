@@ -6,7 +6,7 @@
     }"
   >
     <ExeLogo
-      :class="`flex-shrink-0 fill-current header-logo text-${theme}-violet-primary`"
+      :class="`flex-shrink-0 fill-current header-logo text-${theme}-violet-primary mr-8`"
     />
     <div class="ml-auto flex flex-no-wrap pr-12 space-x-8 overflow-hidden">
       <span class="header-button" role="button">

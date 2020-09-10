@@ -101,6 +101,8 @@ export default {
       }
 
       &.selected {
+        @apply bg-transparent;
+
         .sidemenu-icon {
           @apply text-day-violet-primary;
         }
@@ -145,6 +147,8 @@ export default {
       }
 
       &.selected {
+        @apply bg-transparent;
+
         .sidemenu-icon {
           @apply text-night-violet-primary;
         }

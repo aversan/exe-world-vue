@@ -1,11 +1,13 @@
 <template>
   <small
     :class="{
-      'badge inline-flex items-center justify-center h-4 px-1 rounded w-6': true,
+      'badge inline-flex items-center justify-center overflow-hidden': true,
       [variantClassMap[variant]]: true,
       [themeClassMap[theme]]: true,
       [positionClassMap[position]]: true,
-      'badge-bordered border': bordered,
+      'badge-bordered border': bordered && !dot,
+      'badge-not-dot h-4 w-6 px-1 rounded': !dot,
+      'badge-dot w-2 h-2 rounded-full': dot,
     }"
   >
     {{ text }}
@@ -32,6 +34,10 @@ export default {
       default: 'day', // day night
     },
     bordered: {
+      type: Boolean,
+      default: false,
+    },
+    dot: {
       type: Boolean,
       default: false,
     },
@@ -64,6 +70,18 @@ export default {
 
     &.badge-theme-night {
       @apply border-grey-750;
+    }
+  }
+
+  &-dot {
+    text-indent: -999999px;
+
+    &.badge-theme-day {
+      @apply bg-day-orange-primary border-day-grey-light;
+    }
+
+    &.badge-theme-night {
+      @apply bg-day-orange-primary border-black;
     }
   }
 }
