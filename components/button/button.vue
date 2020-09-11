@@ -72,6 +72,7 @@ export default {
         medium: 'button-medium',
         6: 'button-6 h-6',
         8: 'button-8 h-8',
+        12: 'button-12 h-12',
         10: 'button-10 h-10',
         16: 'button-16 h-16',
       },
@@ -80,6 +81,7 @@ export default {
         secondary: 'button-secondary',
         transparent: 'button-transparent',
         slider: 'button-slider',
+        social: 'button-social',
       },
       themeClassMap: {
         day: 'button-theme-day',
@@ -194,6 +196,14 @@ export default {
       &:not(.is-disabled) {
         @apply shadow-medium;
       }
+    }
+  }
+
+  &-12 {
+    @apply rounded-xl;
+
+    &.button-only-icon {
+      @apply w-12;
     }
   }
 
