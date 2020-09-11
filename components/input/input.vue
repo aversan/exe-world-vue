@@ -1,29 +1,132 @@
 <template>
-  <div
-    class="layout flex flex-auto flex-no-wrap mx-auto bg-day-grey-light min-h-screen min-w-0"
-  >
-    <SidemenuContainer theme="day" />
-    <main class="overflow-auto flex flex-col flex-auto" role="main">
-      <HeaderDesktop theme="day" />
-      <div class="flex-auto layout-content">
-        content
-      </div>
-      <Footer theme="day" />
-    </main>
-  </div>
+  <input
+    :class="{
+      'input-field appearance-none border-2 w-full text-body-1-medium focus:outline-none': true,
+      [sizeClassMap[size]]: true,
+      [themeClassMap[theme]]: true,
+      'input-pill': pill,
+      'is-disabled': disabled,
+      'is-active': active,
+      'is-error': error,
+    }"
+    :value="value"
+    :type="type"
+    :placeholder="placeholder"
+    :disabled="disabled"
+  />
 </template>
 
 <script>
-import HeaderDesktop from '@/components/header/header-desktop'
-import Footer from '@/components/footer/footer'
-import SidemenuContainer from '@/components/sidemenu/sidemenu-container'
-
 export default {
-  loading: false,
-  components: {
-    SidemenuContainer,
-    HeaderDesktop,
-    Footer,
+  props: {
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    type: {
+      type: String,
+      default: '',
+    },
+    value: {
+      type: String,
+      default: '',
+    },
+    active: {
+      type: Boolean,
+      default: false,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    pill: {
+      type: Boolean,
+      default: false,
+    },
+    size: {
+      type: String,
+      default: 'medium', // medium
+    },
+    theme: {
+      type: String,
+      default: 'day', // day night
+    },
+  },
+  data() {
+    return {
+      sizeClassMap: {
+        medium: 'input-medium',
+      },
+      themeClassMap: {
+        day: 'input-theme-day',
+        night: 'input-theme-night',
+      },
+    }
   },
 }
 </script>
+
+<style lang="scss">
+.input-field {
+  &.is-disabled,
+  &:disabled {
+    @apply pointer-events-none opacity-32;
+  }
+
+  &::placeholder {
+    @apply opacity-100;
+  }
+
+  &.input-medium {
+    @apply h-12 px-4 py-2_5 rounded-xl;
+  }
+
+  &.input-theme-day {
+    @apply bg-day-grey-light border-day-grey-light text-black;
+
+    &:focus {
+      @apply bg-white border-day-violet-primary;
+    }
+
+    &.is-active {
+      @apply bg-white border-day-violet-primary;
+    }
+
+    &.is-error {
+      @apply bg-white border-day-orange-primary;
+    }
+
+    &::placeholder {
+      @apply text-day-grey-primary;
+    }
+  }
+
+  &.input-theme-night {
+    @apply bg-white bg-opacity-10 border-white border-opacity-10 text-white text-opacity-90;
+
+    &:focus {
+      @apply border-day-violet-primary;
+    }
+
+    &.is-active {
+      @apply border-night-violet-primary;
+    }
+
+    &.is-error {
+      @apply border-night-orange-primary;
+    }
+
+    &::placeholder {
+      @apply text-white text-opacity-56;
+    }
+  }
+
+  &-pill {
+    @apply rounded-full;
+  }
+}
+</style>

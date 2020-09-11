@@ -16,6 +16,12 @@
             <Checkbox v-model="person2" name="person2" label="y" text="Personal" theme="day" />
             <Checkbox v-model="person2" name="person2" label="y" text="Personal" theme="day" disabled />
           </div>
+          <div class="flex space-x-4">
+            <Input type="text" placeholder="Name" value="" theme="day" />
+            <Input type="text" placeholder="Name" value="xxx" theme="day" active />
+            <Input type="text" placeholder="Name" value="xxx" theme="day" error />
+            <Input type="text" placeholder="Name" value="xxx" theme="day" disabled />
+          </div>
         </div>
       </div>
     </div>
@@ -35,6 +41,12 @@
             <Checkbox v-model="person2" name="person2" label="y" text="Personal" theme="night" />
             <Checkbox v-model="person2" name="person2" label="y" text="Personal" theme="night" disabled />
           </div>
+          <div class="flex space-x-4">
+            <Input type="text" placeholder="Name" value="" theme="night" />
+            <Input type="text" placeholder="Name" value="xxx" theme="night" active />
+            <Input type="text" placeholder="Name" value="xxx" theme="night" error />
+            <Input type="text" placeholder="Name" value="xxx" theme="night" disabled />
+          </div>
         </div>
       </div>
     </div>
@@ -45,14 +57,14 @@
 import { Fragment } from 'vue-fragment'
 import Radio from '@/components/radio/radio'
 import Checkbox from '@/components/checkbox/checkbox'
-// import Switch from '@/components/switch/switch'
+import Input from '@/components/input/input'
 
 export default {
   components: {
     Fragment,
     Radio,
     Checkbox,
-    // Switch,
+    Input,
   },
   data() {
     return {
