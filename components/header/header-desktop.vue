@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{
-      'header-desktop h-22 flex flex-no-wrap items-center border-b justify-between pl-12 flex-shrink-0 rounded-tl-2xl': true,
+      'header-desktop h-22 flex flex-no-wrap items-center justify-between pl-12 flex-shrink-0 rounded-tl-2xl': true,
       [themeClassMap[theme]]: true,
     }"
   >
@@ -60,9 +60,9 @@ export default {
   data() {
     return {
       themeClassMap: {
-        day: 'bg-white border-day-grey-medium border-opacity-56 header-theme-day',
+        day: 'header-theme-day bg-white',
         night:
-          'bg-elevation-01 border-white border-opacity-20 header-theme-night',
+          'header-theme-night bg-elevation-01',
       },
       hideMenu: true,
     }
@@ -84,6 +84,10 @@ export default {
   }
 
   &.header-theme-day {
+    &::before {
+      @apply bg-day-grey-medium bg-opacity-56;
+    }
+
     .header-button {
       @apply bg-day-grey-light;
 
@@ -104,6 +108,10 @@ export default {
   }
 
   &.header-theme-night {
+    &::before {
+      @apply bg-white bg-opacity-20;
+    }
+
     .header-button {
       @apply bg-elevation-04;
 
