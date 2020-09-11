@@ -9,19 +9,19 @@
       'button-with-icon': hasIcon && hasText,
       'button-only-icon': hasIcon && !hasText,
       'button-pill': pill,
-      disabled: disabled && !isTagButton,
-      active,
+      'is-disabled': disabled && !isTagButton,
+      'is-active': active,
     }"
     :disabled="disabled && isTagButton"
     :role="role"
   >
-    <svgicon v-if="hasIcon" class="button-icon" :name="iconName"></svgicon>
+    <Icon v-if="hasIcon" class="button-icon" :name="iconName"></Icon>
     <span class="overflow-hidden">{{ text }}</span>
   </component>
 </template>
 
 <script>
-import '@/components/icons/index'
+import Icon from '@/components/icon/icon'
 
 export default {
   props: {
@@ -61,6 +61,9 @@ export default {
       type: String,
       default: 'button', // button a span
     },
+  },
+  components: {
+    Icon,
   },
   data() {
     return {
@@ -109,7 +112,7 @@ export default {
     @apply outline-none;
   }
 
-  &.disabled,
+  &.is-disabled,
   &:disabled {
     @apply pointer-events-none opacity-32;
   }
@@ -149,7 +152,7 @@ export default {
       @apply w-9;
 
       .button-icon {
-        &.svg-icon-more-h {
+        &.svgicon-more-h {
           @apply w-5 h-5;
         }
       }
@@ -188,7 +191,7 @@ export default {
     &.button-slider {
       @apply h-16;
 
-      &:not(.disabled) {
+      &:not(.is-disabled) {
         @apply shadow-medium;
       }
     }
@@ -208,7 +211,7 @@ export default {
     &.button-slider {
       @apply h-22;
 
-      &:not(.disabled) {
+      &:not(.is-disabled) {
         @apply shadow-big;
       }
     }
@@ -224,7 +227,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-day-violet-dark;
       }
     }
@@ -238,7 +241,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-night-violet-dark;
       }
     }
@@ -254,7 +257,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-day-violet-dark;
       }
     }
@@ -268,7 +271,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-night-violet-dark;
       }
     }
@@ -284,7 +287,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-day-violet-dark text-white;
       }
     }
@@ -298,7 +301,7 @@ export default {
       }
 
       &:active,
-      &.active {
+      &.is-active {
         @apply bg-night-violet-dark text-white text-opacity-90;
       }
     }
@@ -313,9 +316,7 @@ export default {
     }
 
     &:active,
-    &.active,
-    &.active:hover,
-    &.active:focus {
+    &.is-active {
       @apply bg-opacity-10;
     }
   }

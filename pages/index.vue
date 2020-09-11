@@ -11,6 +11,7 @@
           <p><a target="_blank" href="/icons">Icons</a></p>
           <p><a target="_blank" href="/typography">Typography</a></p>
           <p><a target="_blank" href="/navigations">Navigations</a></p>
+          <p><a target="_blank" href="/forms">Forms</a></p>
         </div>
       </div>
       <Footer theme="day" />

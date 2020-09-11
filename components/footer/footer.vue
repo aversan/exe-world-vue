@@ -1,7 +1,7 @@
 <template>
   <footer
     :class="{
-      'footer h-16 flex flex-shrink-0 flex-no-wrap items-center justify-between px-12 rounded-bl-2xl border-t': true,
+      'footer h-16 flex flex-shrink-0 flex-no-wrap items-center justify-between px-12 rounded-bl-2xl': true,
       [themeClassMap[theme]]: true,
     }"
   >
@@ -26,8 +26,8 @@ export default {
   data() {
     return {
       themeClassMap: {
-        day: 'bg-white border-day-grey-medium border-opacity-56 footer-theme-day',
-        night: 'bg-elevation-01 border-white border-opacity-20 footer-theme-night',
+        day: 'bg-white footer-theme-day',
+        night: 'bg-elevation-01 footer-theme-night',
       },
     }
   },
@@ -36,7 +36,18 @@ export default {
 
 <style lang="scss">
 .footer {
+  @apply relative;
+
+  &::before {
+    content: '';
+    @apply absolute inset-x-0 top-0 h-px mx-12;
+  }
+
   &.footer-theme-day {
+    &::before {
+      @apply bg-day-grey-medium bg-opacity-56;
+    }
+
     .footer-text {
       @apply text-day-grey-primary;
     }
@@ -56,6 +67,10 @@ export default {
   }
 
   &.footer-theme-night {
+    &::before {
+      @apply bg-white bg-opacity-20;
+    }
+
     .footer-text {
       @apply text-white text-opacity-56;
     }

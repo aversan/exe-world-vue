@@ -10,17 +10,17 @@
     />
     <div class="ml-auto flex flex-no-wrap pr-12 space-x-8 overflow-hidden">
       <span class="header-button" role="button">
-        <svgicon class="header-button-icon mr-2" name="wallet" />
+        <Icon class="header-button-icon mr-2" name="wallet" />
         <span class="header-button-text text-body-2-medium">$150</span>
         <span
           :class="`rounded-full bg-${theme}-violet-primary h-6 ml-2 inline-flex items-center`"
         >
-          <svgicon class="text-white" name="add" />
+          <Icon class="text-white" name="add" />
         </span>
       </span>
       <span class="header-button" role="button">
         <BadgeContainer>
-          <svgicon class="header-button-icon" name="notification" />
+          <Icon class="header-button-icon" name="notification" />
           <Badge bordered text="2" :theme="theme" position="top" />
         </BadgeContainer>
       </span>
@@ -33,24 +33,23 @@
           alt=""
         />
         <span class="header-button-text subtitle-1">Alex Smith</span>
-        <svgicon class="header-button-icon ml-4" name="settings" />
+        <Icon class="header-button-icon ml-4" name="settings" />
       </span>
     </div>
   </div>
 </template>
+
 <script>
-import ExeLogo from '@/assets/images/exe-logo.svg'
-import '@/components/icons/add'
-import '@/components/icons/wallet'
-import '@/components/icons/notification'
-import '@/components/icons/settings'
 import { BadgeContainer, Badge } from '@/components/badge/index'
+import ExeLogo from '@/assets/images/exe-logo.svg'
+import Icon from '@/components/icon/icon'
 
 export default {
   components: {
     ExeLogo,
     BadgeContainer,
     Badge,
+    Icon,
   },
   props: {
     theme: {
@@ -73,6 +72,13 @@ export default {
 
 <style lang="scss">
 .header-desktop {
+  @apply relative;
+
+  &::before {
+    content: '';
+    @apply absolute inset-x-0 bottom-0 h-px mx-12;
+  }
+
   .header-button {
     @apply inline-flex flex-no-wrap items-center rounded-xl h-14 px-4 flex-shrink-0;
   }

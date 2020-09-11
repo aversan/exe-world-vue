@@ -100,7 +100,7 @@ export default {
         }
       }
 
-      &.selected {
+      &.is-selected {
         @apply bg-transparent;
 
         .sidemenu-icon {
@@ -146,7 +146,7 @@ export default {
         }
       }
 
-      &.selected {
+      &.is-selected {
         @apply bg-transparent;
 
         .sidemenu-icon {

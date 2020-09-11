@@ -14,7 +14,7 @@
     "lint:style": "stylelint **/*.{vue,css,scss} --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style",
     "test": "jest",
-    "icons": "vsvg -s ./assets/icons -t ./components/icons --svgo svgo.js --es6"
+    "icons": "vsvg -s ./assets/icons -t ./components/icon/icons --svgo svgo.js --es6"
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
@@ -73,6 +73,7 @@
     "vue-jest": "^3.0.4",
     "vue-mq": "^1.0.1",
     "vue-svg-loader": "^0.16.0",
-    "vue-svgicon": "^3.2.8"
+    "vue-svgicon": "^3.2.8",
+    "vue-tailwind": "^1.2.6"
   }
 }

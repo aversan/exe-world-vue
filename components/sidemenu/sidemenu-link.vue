@@ -2,15 +2,15 @@
   <span
     :class="{
       'sidemenu-link flex flex-col items-center justify-end rounded-xl h-20 overflow-hidden px-4 pb-3_5': true,
-      selected: selected,
+      'is-selected': selected,
     }"
     role="tab"
   >
     <BadgeContainer v-if="hasBadge">
-      <svgicon class="sidemenu-icon" :name="icon"></svgicon>
+      <Icon class="sidemenu-icon" :name="icon"></Icon>
       <Badge bordered :text="badge" :theme="theme" position="top" />
     </BadgeContainer>
-    <svgicon v-if="!hasBadge" class="sidemenu-icon" :name="icon"></svgicon>
+    <Icon v-if="!hasBadge" class="sidemenu-icon" :name="icon"></Icon>
     <span class="sidemenu-text caption-1-all-caps whitespace-no-wrap mt-2">{{
       text
     }}</span>
@@ -18,18 +18,10 @@
 </template>
 
 <script>
-import '@/components/icons/games'
-import '@/components/icons/library'
-import '@/components/icons/message'
-import '@/components/icons/friends'
-import '@/components/icons/news'
 import { BadgeContainer, Badge } from '@/components/badge/index'
+import Icon from '@/components/icon/icon'
 
 export default {
-  components: {
-    BadgeContainer,
-    Badge,
-  },
   props: {
     selected: {
       type: Boolean,
@@ -51,6 +43,11 @@ export default {
       type: String,
       default: 'day',
     },
+  },
+  components: {
+    BadgeContainer,
+    Badge,
+    Icon,
   },
   computed: {
     hasBadge() {

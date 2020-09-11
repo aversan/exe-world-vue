@@ -3,7 +3,7 @@
     :class="{
       'tab-link': true,
       [sizeClassMap[size]]: true,
-      selected: selected,
+      'is-selected': selected,
     }"
     role="tab"
   >

@@ -26,6 +26,14 @@ module.exports = {
       xl: '1280px',
       xxl: '1980px',
     },
+    // customForms: (theme) => ({
+    //   default: {
+    //     checkbox: {
+    //     },
+    //     radio: {
+    //     },
+    //   },
+    // }),
     filter: {
       // defaults to {}
       // 'none': 'none',
@@ -555,11 +563,12 @@ module.exports = {
     //   full: '100%',
     //   ...breakpoints(theme('screens')),
     // }),
-    // minHeight: {
-    //   0: '0',
-    //   full: '100%',
-    //   screen: '100vh',
-    // },
+    minHeight: (theme) => ({
+      0: '0',
+      6: theme('spacing.6'),
+      full: '100%',
+      screen: '100vh',
+    }),
     minWidth: (theme) => ({
       0: '0',
       6: theme('spacing.6'),

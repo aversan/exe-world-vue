@@ -6,7 +6,7 @@
       [sizeClassMap[size]]: true,
     }"
     :src="src"
-  >
+  />
 </template>
 
 <script>

@@ -77,7 +77,7 @@ export default {
         @apply bg-day-orange-primary bg-opacity-20;
       }
 
-      &.selected {
+      &.is-selected {
         @apply bg-day-orange-primary text-white;
       }
     }
@@ -96,7 +96,7 @@ export default {
         @apply bg-night-orange-primary bg-opacity-20 text-white;
       }
 
-      &.selected {
+      &.is-selected {
         @apply bg-day-orange-primary text-white;
       }
     }
