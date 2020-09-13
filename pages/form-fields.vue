@@ -18,7 +18,7 @@
         <h1 class="h1 mb-16 text-white">Form Fields Night</h1>
         <div class="space-y-8">
           <div class="flex space-x-4">
-            <FormField label="Name" hint="Support Text" theme="night" type="text" />
+            <FormField label="Name" hint="Support Text" theme="night" type="password" />
             <FormField label="Name" hint="Support Text" theme="night" type="text" value="Text" />
             <FormField label="Name" hint="Support Text" theme="night" type="text" value="Text" error="Error text" />
             <FormField label="Name" hint="Support Text" theme="night" type="text" disabled />

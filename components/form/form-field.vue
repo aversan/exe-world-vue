@@ -14,6 +14,7 @@
       :error="isError"
       :value="value"
       v-on="$listeners"
+      :type="type"
     />
     <small
       :class="{
@@ -45,6 +46,10 @@ export default {
     hint: {
       type: String,
       default: '',
+    },
+    type: {
+      type: String,
+      default: 'text',
     },
   },
   components: {

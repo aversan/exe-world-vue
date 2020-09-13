@@ -12,9 +12,10 @@ export default {
   },
   data() {
     return {
+      labelClass: 'max-w-full absolute top-0 px-4 py-2_5 inline-flex items-center whitespace-no-wrap overflow-hidden',
       labelPositionClassMap: {
-        normal: 'label text-body-1 truncate',
-        top: 'label-top caption-2 truncate',
+        normal: 'label text-body-1 h-14',
+        top: 'label-top caption-2 h-auto',
       },
       labelThemeClassMap: {
         day: 'label-theme-day text-day-grey-primary',

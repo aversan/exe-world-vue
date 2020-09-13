@@ -11,7 +11,7 @@
   >
     <span
       :class="{
-        'max-w-full absolute top-0 px-4 py-2_5 inline-flex items-center overflow-hidden': true,
+        [labelClass]: true,
         [labelPositionClassMap[labelPosition]]: true,
         [labelThemeClassMap[theme]]: true,
       }"
