@@ -17,15 +17,15 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 
 export default {
   mixins: [theme],
   data() {
     return {
       themeClassMap: {
-        day: 'bg-white footer-theme-day',
-        night: 'bg-elevation-01 footer-theme-night',
+        [themes.DAY]: 'bg-white footer-theme-day',
+        [themes.NIGHT]: 'bg-elevation-01 footer-theme-night',
       },
     }
   },

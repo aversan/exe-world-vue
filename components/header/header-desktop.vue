@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 import { BadgeContainer, Badge } from '@/components/badge/index'
 import Icon from '@/components/icon/icon'
 import ExeLogo from '@/assets/images/exe-logo.svg'
@@ -56,8 +56,8 @@ export default {
   data() {
     return {
       themeClassMap: {
-        day: 'header-theme-day bg-white',
-        night:
+        [themes.DAY]: 'header-theme-day bg-white',
+        [themes.NIGHT]:
           'header-theme-night bg-elevation-01',
       },
       hideMenu: true,

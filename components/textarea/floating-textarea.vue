@@ -1,7 +1,7 @@
 <template>
   <label
     :class="{
-      'relative floating-input-container w-full cursor-text block': true,
+      'relative floating-textarea-container w-full cursor-text block': true,
       [themeClassMap[theme]]: true,
       'is-disabled': disabled,
       'is-filled': isFilled,
@@ -17,20 +17,19 @@
       }"
       v-text="label"
     />
-    <Input
-      class="floating-input"
+    <Textarea
+      class="floating-textarea"
       variant="floating"
       :theme="theme"
-      :type="type"
       placeholder=""
       :disabled="disabled"
       :active="active"
       :error="error"
       :value="value"
       v-on="$listeners"
+      v-bind="$attrs"
       @focus="this.onFocus"
       @blur="this.onBlur"
-      v-bind="$attrs"
     />
   </label>
 </template>
@@ -38,25 +37,36 @@
 <script>
 import theme, { themes } from '@/mixins/theme'
 import floatingTextfield from '@/mixins/floating-textfield'
-import textfieldProps from '@/mixins/textfield'
-import Input from './input'
+import Textarea from './textarea'
 
 export default {
-  mixins: [theme, floatingTextfield, textfieldProps],
+  mixins: [theme, floatingTextfield],
   props: {
-    type: {
+    value: {
       type: String,
-      default: 'text',
+      default: '',
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    active: {
+      type: Boolean,
+      default: false,
     },
   },
   components: {
-    Input,
+    Textarea,
   },
   data() {
     return {
       themeClassMap: {
-        [themes.DAY]: 'floating-input-theme-day',
-        [themes.NIGHT]: 'floating-input-theme-night',
+        [themes.DAY]: 'floating-textarea-theme-day',
+        [themes.NIGHT]: 'floating-textarea-theme-night',
       },
     }
   },

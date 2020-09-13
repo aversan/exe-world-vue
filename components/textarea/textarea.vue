@@ -1,38 +1,30 @@
 <template>
-  <input
+  <textarea
     :class="{
-      'input appearance-none border-2 w-full text-body-1 focus:outline-none': true,
-      [variantClassMap[variant]]:true,
+      'textarea appearance-none border-2 w-full text-body-1 focus:outline-none': true,
+      [variantClassMap[variant]]: true,
       [themeClassMap[theme]]: true,
-      'input-pill': pill,
       'is-disabled': disabled,
       'is-active': active,
       'is-error': error,
     }"
-    :value="value"
-    :type="type"
     :placeholder="placeholder"
     :disabled="disabled"
     v-on="inputListeners"
     v-bind="$attrs"
-  />
+    v-model="currentValue"
+  >
+  </textarea>
 </template>
 
 <script>
 import theme, { themes } from '@/mixins/theme'
+import valueOrSlot from '@/mixins/value-or-slot'
 import textfieldProps from '@/mixins/textfield'
 
 export default {
-  mixins: [theme, textfieldProps],
+  mixins: [theme, valueOrSlot, textfieldProps],
   props: {
-    type: {
-      type: String,
-      default: 'text',
-    },
-    pill: {
-      type: Boolean,
-      default: false,
-    },
     variant: {
       type: String,
       default: 'normal', // normal floating
@@ -41,12 +33,12 @@ export default {
   data() {
     return {
       variantClassMap: {
-        normal: 'input-normal',
-        floating: 'input-floating',
+        normal: 'textarea-normal',
+        floating: 'textarea-floating',
       },
       themeClassMap: {
-        [themes.DAY]: 'input-theme-day',
-        [themes.NIGHT]: 'input-theme-night',
+        [themes.DAY]: 'textarea-theme-day',
+        [themes.NIGHT]: 'textarea-theme-night',
       },
     }
   },
@@ -54,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-.input {
+.textarea {
   @apply px-4 rounded-xl;
 
   &.is-disabled,
@@ -66,15 +58,15 @@ export default {
     @apply opacity-100;
   }
 
-  &.input-normal {
-    @apply h-12 py-2_5;
+  &.textarea-normal {
+    @apply min-h-12 py-2_5;
   }
 
-  &.input-floating {
-    @apply h-14 pt-5_5 pb-2_5;
+  &.textarea-floating {
+    @apply min-h-14 pt-5_5 pb-2_5;
   }
 
-  &.input-theme-day {
+  &.textarea-theme-day {
     @apply bg-day-grey-light border-day-grey-light text-black;
 
     &:focus {
@@ -94,7 +86,7 @@ export default {
     }
   }
 
-  &.input-theme-night {
+  &.textarea-theme-night {
     @apply bg-white bg-opacity-10 border-white border-opacity-10 text-white text-opacity-90;
 
     &:focus {
@@ -112,10 +104,6 @@ export default {
     &::placeholder {
       @apply text-white text-opacity-56;
     }
-  }
-
-  &-pill {
-    @apply rounded-full;
   }
 }
 </style>

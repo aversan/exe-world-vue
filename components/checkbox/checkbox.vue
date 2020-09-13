@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
@@ -68,8 +68,8 @@ export default {
         medium: 'checkbox-medium',
       },
       themeClassMap: {
-        day: 'checkbox-theme-day',
-        night: 'checkbox-theme-night',
+        [themes.DAY]: 'checkbox-theme-day',
+        [themes.NIGHT]: 'checkbox-theme-night',
       },
     }
   },

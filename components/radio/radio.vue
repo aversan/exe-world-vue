@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
@@ -68,8 +68,8 @@ export default {
         medium: 'radio-medium',
       },
       themeClassMap: {
-        day: 'radio-theme-day',
-        night: 'radio-theme-night',
+        [themes.DAY]: 'radio-theme-day',
+        [themes.NIGHT]: 'radio-theme-night',
       },
     }
   },

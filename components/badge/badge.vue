@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 
 export default {
   mixins: [theme],
@@ -51,8 +51,8 @@ export default {
         medium: 'badge-variant-medium caption-2-medium',
       },
       themeClassMap: {
-        day: 'badge-theme-day bg-day-orange-primary text-white',
-        night: 'badge-theme-night bg-day-orange-primary text-white',
+        [themes.DAY]: 'badge-theme-day bg-day-orange-primary text-white',
+        [themes.NIGHT]: 'badge-theme-night bg-day-orange-primary text-white',
       },
     }
   },

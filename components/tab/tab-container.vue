@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 
 export default {
   mixins: [theme],
@@ -33,8 +33,8 @@ export default {
         medium: 'tab-medium',
       },
       themeClassMap: {
-        day: 'tab-theme-day',
-        night: 'tab-theme-night',
+        [themes.DAY]: 'tab-theme-day',
+        [themes.NIGHT]: 'tab-theme-night',
       },
     }
   },

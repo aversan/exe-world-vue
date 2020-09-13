@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 import SidemenuLink from './sidemenu-link'
 import SidemenuGame from './sidemenu-game'
 
@@ -39,8 +39,8 @@ export default {
   data() {
     return {
       themeClassMap: {
-        day: 'sidemenu-theme-day',
-        night: 'sidemenu-theme-night',
+        [themes.DAY]: 'sidemenu-theme-day',
+        [themes.NIGHT]: 'sidemenu-theme-night',
       },
       items: [
         { icon: 'games', text: 'All Games', selected: true },

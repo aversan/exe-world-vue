@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import theme from '@/mixins/theme'
+import theme, { themes } from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
@@ -82,8 +82,8 @@ export default {
         social: 'button-social',
       },
       themeClassMap: {
-        day: 'button-theme-day',
-        night: 'button-theme-night',
+        [themes.DAY]: 'button-theme-day',
+        [themes.NIGHT]: 'button-theme-night',
       },
     }
   },

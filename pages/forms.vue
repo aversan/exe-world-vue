@@ -28,6 +28,24 @@
             <FloatingInput v-model="input2" label="Name" theme="day" error />
             <FloatingInput v-model="input2" label="Name" theme="day" disabled />
           </div>
+          <div class="flex space-x-4">
+            <FloatingInput v-model="input2" label="Name" theme="day" />
+            <FloatingInput v-model="input2" label="Name" theme="day" active />
+            <FloatingInput v-model="input2" label="Name" theme="day" error />
+            <FloatingInput v-model="input2" label="Name" theme="day" disabled />
+          </div>
+          <div class="flex space-x-4">
+            <Textarea placeholder="Name" theme="day" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="day" active value="xxx" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="day" error value="xxx" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="day" disabled value="xxx" cols="5" rows="6" />
+          </div>
+          <div class="flex space-x-4">
+            <FloatingTextarea v-model="textarea2" label="Name" theme="day" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2" label="Name" theme="day" active value="xxx" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2" label="Name" theme="day" error value="xxx" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2"  label="Name" theme="day" disabled value="xxx" cols="5" rows="6" />
+          </div>
         </div>
       </div>
     </div>
@@ -59,6 +77,18 @@
             <FloatingInput v-model="input2" label="Name" theme="night" error />
             <FloatingInput v-model="input2" label="Name" theme="night" disabled />
           </div>
+          <div class="flex space-x-4">
+            <Textarea placeholder="Name" theme="night" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="night" active value="xxx" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="night" error value="xxx" cols="5" rows="6" />
+            <Textarea placeholder="Name" theme="night" disabled value="xxx" cols="5" rows="6" />
+          </div>
+          <div class="flex space-x-4">
+            <FloatingTextarea v-model="textarea2" label="Name" theme="night" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2" label="Name" theme="night" active value="xxx" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2" label="Name" theme="night" error value="xxx" cols="5" rows="6" />
+            <FloatingTextarea v-model="textarea2" label="Name" theme="night" disabled value="xxx" cols="5" rows="6" />
+          </div>
         </div>
       </div>
     </div>
@@ -70,6 +100,7 @@ import { Fragment } from 'vue-fragment'
 import Radio from '@/components/radio/radio'
 import Checkbox from '@/components/checkbox/checkbox'
 import { Input, FloatingInput } from '@/components/input/index'
+import { Textarea, FloatingTextarea } from '@/components/textarea/index'
 
 export default {
   components: {
@@ -78,12 +109,15 @@ export default {
     Checkbox,
     Input,
     FloatingInput,
+    Textarea,
+    FloatingTextarea,
   },
   data() {
     return {
       person: 'y',
       person2: 'y',
       input2: 'xxx',
+      textarea2: 'xxx',
     }
   },
 }
