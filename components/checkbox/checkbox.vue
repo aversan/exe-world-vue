@@ -23,14 +23,16 @@
     />
     <Icon v-if="!isChecked" class="checkbox-icon" name="checkbox-off" />
     <Icon v-if="isChecked" class="checkbox-icon" name="checkbox-on" />
-    <span v-if="text" class="ml-4 text-body-1 checkbox-text">{{ text }}</span>
+    <span v-if="text" class="ml-4 text-body-1 checkbox-text" v-text="text" />
   </label>
 </template>
 
 <script>
+import theme from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
+  mixins: [theme],
   components: {
     Icon,
   },
@@ -54,10 +56,6 @@ export default {
     size: {
       type: String,
       default: 'medium', // medium
-    },
-    theme: {
-      type: String,
-      default: 'day', // day night
     },
     disabled: {
       type: Boolean,

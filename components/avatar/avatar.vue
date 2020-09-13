@@ -6,6 +6,7 @@
       [sizeClassMap[size]]: true,
     }"
     :src="src"
+    :loading="lazy"
   />
 </template>
 
@@ -23,6 +24,10 @@ export default {
     size: {
       type: String,
       default: 'medium', // extra large medium small
+    },
+    lazy: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

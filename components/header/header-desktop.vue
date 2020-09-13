@@ -40,22 +40,18 @@
 </template>
 
 <script>
+import theme from '@/mixins/theme'
 import { BadgeContainer, Badge } from '@/components/badge/index'
-import ExeLogo from '@/assets/images/exe-logo.svg'
 import Icon from '@/components/icon/icon'
+import ExeLogo from '@/assets/images/exe-logo.svg'
 
 export default {
+  mixins: [theme],
   components: {
     ExeLogo,
     BadgeContainer,
     Badge,
     Icon,
-  },
-  props: {
-    theme: {
-      type: String,
-      default: 'day',
-    },
   },
   data() {
     return {

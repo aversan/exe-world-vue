@@ -15,14 +15,12 @@
     </nav>
   </footer>
 </template>
+
 <script>
+import theme from '@/mixins/theme'
+
 export default {
-  props: {
-    theme: {
-      type: String,
-      default: 'day',
-    },
-  },
+  mixins: [theme],
   data() {
     return {
       themeClassMap: {

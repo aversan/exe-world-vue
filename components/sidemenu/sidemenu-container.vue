@@ -26,16 +26,12 @@
 </template>
 
 <script>
+import theme from '@/mixins/theme'
 import SidemenuLink from './sidemenu-link'
 import SidemenuGame from './sidemenu-game'
 
 export default {
-  props: {
-    theme: {
-      type: String,
-      default: 'day',
-    },
-  },
+  mixins: [theme],
   components: {
     SidemenuLink,
     SidemenuGame,

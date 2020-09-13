@@ -16,15 +16,14 @@
 </template>
 
 <script>
+import theme from '@/mixins/theme'
+
 export default {
+  mixins: [theme],
   props: {
     size: {
       type: String,
       default: 'medium', // big medium
-    },
-    theme: {
-      type: String,
-      default: 'day', // day night
     },
   },
   data() {

@@ -1,8 +1,8 @@
 <template>
   <input
     :class="{
-      'input-field appearance-none border-2 w-full text-body-1-medium focus:outline-none': true,
-      [sizeClassMap[size]]: true,
+      'input appearance-none border-2 w-full text-body-1 focus:outline-none': true,
+      [typeClassMap[type]]: true,
       [themeClassMap[theme]]: true,
       'input-pill': pill,
       'is-disabled': disabled,
@@ -10,20 +10,20 @@
       'is-error': error,
     }"
     :value="value"
-    :type="type"
+    type="text"
     :placeholder="placeholder"
     :disabled="disabled"
+    v-on="inputListeners"
   />
 </template>
 
 <script>
+import theme from '@/mixins/theme'
+
 export default {
+  mixins: [theme],
   props: {
     placeholder: {
-      type: String,
-      default: '',
-    },
-    type: {
       type: String,
       default: '',
     },
@@ -47,19 +47,16 @@ export default {
       type: Boolean,
       default: false,
     },
-    size: {
+    type: {
       type: String,
-      default: 'medium', // medium
-    },
-    theme: {
-      type: String,
-      default: 'day', // day night
+      default: 'normal', // normal floating
     },
   },
   data() {
     return {
-      sizeClassMap: {
-        medium: 'input-medium',
+      typeClassMap: {
+        normal: 'input-normal',
+        floating: 'input-floating',
       },
       themeClassMap: {
         day: 'input-theme-day',
@@ -67,11 +64,29 @@ export default {
       },
     }
   },
+  computed: {
+    inputListeners() {
+      const vm = this
+
+      return Object.assign(
+        {},
+
+        this.$listeners,
+        {
+          input(event) {
+            vm.$emit('input', event.target.value)
+          },
+        }
+      )
+    },
+  },
 }
 </script>
 
 <style lang="scss">
-.input-field {
+.input {
+  @apply px-4 rounded-xl;
+
   &.is-disabled,
   &:disabled {
     @apply pointer-events-none opacity-32;
@@ -81,8 +96,12 @@ export default {
     @apply opacity-100;
   }
 
-  &.input-medium {
-    @apply h-12 px-4 py-2_5 rounded-xl;
+  &.input-normal {
+    @apply h-12 py-2_5;
+  }
+
+  &.input-floating {
+    @apply h-14 pt-5_5 pb-2_5;
   }
 
   &.input-theme-day {

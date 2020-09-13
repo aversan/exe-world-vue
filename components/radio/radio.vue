@@ -23,17 +23,16 @@
     />
     <Icon v-if="!isChecked" class="radio-icon" name="radio-off" />
     <Icon v-if="isChecked" class="radio-icon" name="radio-on" />
-    <span v-if="text" class="ml-4 text-body-1 radio-text">{{ text }}</span>
+    <span v-if="text" class="ml-4 text-body-1 radio-text" v-text="text" />
   </label>
 </template>
 
 <script>
+import theme from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
-  components: {
-    Icon,
-  },
+  mixins: [theme],
   props: {
     name: {
       type: String,
@@ -55,14 +54,13 @@ export default {
       type: String,
       default: 'medium', // medium
     },
-    theme: {
-      type: String,
-      default: 'day', // day night
-    },
     disabled: {
       type: Boolean,
       default: false,
     },
+  },
+  components: {
+    Icon,
   },
   data() {
     return {

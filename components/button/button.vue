@@ -15,15 +15,17 @@
     :disabled="disabled && isTagButton"
     :role="role"
   >
-    <Icon v-if="hasIcon" class="button-icon" :name="iconName"></Icon>
-    <span class="overflow-hidden">{{ text }}</span>
+    <Icon v-if="hasIcon" class="button-icon" :name="iconName" />
+    <span v-if="hasText" class="overflow-hidden" v-text="text" />
   </component>
 </template>
 
 <script>
+import theme from '@/mixins/theme'
 import Icon from '@/components/icon/icon'
 
 export default {
+  mixins: [theme],
   props: {
     text: {
       type: String,
@@ -52,10 +54,6 @@ export default {
     variant: {
       type: String,
       default: 'primary', // primary secondary transparent
-    },
-    theme: {
-      type: String,
-      default: 'day', // day night
     },
     tag: {
       type: String,

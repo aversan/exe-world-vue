@@ -9,13 +9,15 @@
       'badge-not-dot h-4 w-6 px-1 rounded': !dot,
       'badge-dot w-2 h-2 rounded-full': dot,
     }"
-  >
-    {{ text }}
-  </small>
+    v-text="text"
+  />
 </template>
 
 <script>
+import theme from '@/mixins/theme'
+
 export default {
+  mixins: [theme],
   props: {
     text: {
       type: String,
@@ -28,10 +30,6 @@ export default {
     variant: {
       type: String,
       default: 'normal', // normal medium
-    },
-    theme: {
-      type: String,
-      default: 'day', // day night
     },
     bordered: {
       type: Boolean,

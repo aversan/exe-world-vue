@@ -40,7 +40,7 @@ export default {
     // { src: '@/plugins/vue-awesome-swiper', mode: 'server' },
     '@/plugins/vue-svgicon.js',
     '@/plugins/vue-mq.js',
-    '@/plugins/vue-tailwind.js',
+    // '@/plugins/vue-tailwind.js',
   ],
   /*
    ** Auto import components
