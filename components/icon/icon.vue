@@ -2,6 +2,7 @@
   <svgicon
     :class="`svgicon-${name}`"
     :name="name"
+    :role="role"
   />
 </template>
 
@@ -13,6 +14,10 @@ export default {
     name: {
       type: String,
       required: true,
+    },
+    role: {
+      type: String,
+      default: '',
     },
   },
 }

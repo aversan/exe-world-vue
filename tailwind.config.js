@@ -281,6 +281,7 @@ module.exports = {
       10: '2.5rem', // 40px
       11: '2.75rem', // 44px
       12: '3rem', // 48px
+      13: '3.25rem', // 52px
       14: '3.5rem', // 56px
       16: '4rem', // 64px
       18: '4.5rem', // 72px
@@ -291,7 +292,7 @@ module.exports = {
       // 32: '8rem',
       // 40: '10rem',
       // 48: '12rem',
-      // 56: '14rem',
+      56: '14rem',
       // 64: '16rem',
     },
     backgroundColor: (theme) => ({
@@ -546,25 +547,27 @@ module.exports = {
       ...theme('spacing'),
       ...negative(theme('spacing')),
     }),
-    // maxHeight: {
-    //   full: '100%',
-    //   screen: '100vh',
-    // },
-    // maxWidth: (theme, { breakpoints }) => ({
-    //   none: 'none',
-    //   xs: '20rem',
-    //   sm: '24rem',
-    //   md: '28rem',
-    //   lg: '32rem',
-    //   xl: '36rem',
-    //   '2xl': '42rem',
-    //   '3xl': '48rem',
-    //   '4xl': '56rem',
-    //   '5xl': '64rem',
-    //   '6xl': '72rem',
-    //   full: '100%',
-    //   ...breakpoints(theme('screens')),
-    // }),
+    maxHeight: {
+      full: '100%',
+      screen: '100vh',
+      xs: '18rem',
+    },
+    maxWidth: (theme, { breakpoints }) => ({
+      none: 'none',
+      xxs: '14.25rem',
+      // xs: '20rem',
+      // sm: '24rem',
+      md: '28.65rem',
+      // lg: '32rem',
+      // xl: '36rem',
+      // '2xl': '42rem',
+      // '3xl': '48rem',
+      // '4xl': '56rem',
+      // '5xl': '64rem',
+      // '6xl': '72rem',
+      full: '100%',
+      ...breakpoints(theme('screens')),
+    }),
     minHeight: (theme) => ({
       0: '0',
       6: theme('spacing.6'),
