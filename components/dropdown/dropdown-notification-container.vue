@@ -42,20 +42,7 @@ export default {
     width: calc(100% + 2rem);
   }
 
-  .dropdown-notification {
-    &::before {
-      @apply absolute left-0 inset-y-0;
-      content: '';
-      width: 2px;
-    }
-  }
-
-
   &.dropdown-notification-theme-day {
-    .dropdown-notification-wrapper {
-      //@apply divide-day-grey-medium;
-    }
-
     .dropdown-notification {
       &:hover,
       &:focus {
@@ -128,7 +115,6 @@ export default {
           @apply text-night-violet-primary;
         }
       }
-
     }
   }
 }

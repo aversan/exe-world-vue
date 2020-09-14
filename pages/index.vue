@@ -13,6 +13,8 @@
           <p><a target="_blank" href="/navigations">Navigations</a></p>
           <p><a target="_blank" href="/forms">Forms</a></p>
           <p><a target="_blank" href="/form-fields">Forms Fields</a></p>
+          <p><a target="_blank" href="/menus">Menus</a></p>
+          <p><a target="_blank" href="/friends">Friends</a></p>
         </div>
       </div>
       <Footer theme="day" />

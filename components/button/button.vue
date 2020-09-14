@@ -53,7 +53,7 @@ export default {
     },
     variant: {
       type: String,
-      default: 'primary', // primary secondary transparent
+      default: 'primary', // primary secondary transparent link
     },
     tag: {
       type: String,
@@ -80,6 +80,7 @@ export default {
         transparent: 'button-transparent',
         slider: 'button-slider',
         social: 'button-social',
+        link: 'button-link',
       },
       themeClassMap: {
         [themes.DAY]: 'button-theme-day',
@@ -152,7 +153,8 @@ export default {
       @apply w-9;
 
       .button-icon {
-        &.svgicon-more-h {
+        &.svgicon-more-h,
+        &.svgicon-more-v {
           @apply w-5 h-5;
         }
       }
@@ -315,17 +317,31 @@ export default {
     }
   }
 
-  &-transparent {
-    @apply bg-white bg-opacity-20 text-white backdrop-blur;
+  &-link {
+    &.button-theme-day {
+      @apply text-day-grey-primary;
 
-    &:hover,
-    &:focus {
-      @apply bg-opacity-30;
+      &:hover,
+      &:focus {
+        @apply text-day-violet-primary;
+      }
+
+      &:active {
+        @apply text-day-violet-dark;
+      }
     }
 
-    &:active,
-    &.is-active {
-      @apply bg-opacity-10;
+    &.button-theme-night {
+      @apply text-white text-opacity-56;
+
+      &:hover,
+      &:focus {
+        @apply text-night-violet-primary;
+      }
+
+      &:active {
+        @apply text-night-violet-primary;
+      }
     }
   }
 

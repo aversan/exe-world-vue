@@ -1,7 +1,7 @@
 <template>
   <img
     :class="{
-      'avatar object-cover': true,
+      'avatar object-cover flex-shrink-0': true,
       [shapeClassMap[shape]]: true,
       [sizeClassMap[size]]: true,
     }"
