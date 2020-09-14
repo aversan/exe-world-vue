@@ -28,8 +28,8 @@
       :value="value"
       v-on="$listeners"
       v-bind="$attrs"
-      @focus="this.onFocus"
-      @blur="this.onBlur"
+      @focus="onFocus"
+      @blur="onBlur"
     />
   </label>
 </template>

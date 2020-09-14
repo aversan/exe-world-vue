@@ -113,6 +113,7 @@ export default {
         @apply text-day-violet-primary;
       }
     }
+
     &.is-checked {
       .radio-icon {
         @apply text-day-violet-primary;

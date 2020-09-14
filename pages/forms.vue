@@ -29,10 +29,12 @@
             <FloatingInput v-model="input2" label="Name" theme="day" disabled />
           </div>
           <div class="flex space-x-4">
-            <FloatingInput v-model="input2" label="Name" theme="day" />
-            <FloatingInput v-model="input2" label="Name" theme="day" active />
-            <FloatingInput v-model="input2" label="Name" theme="day" error />
-            <FloatingInput v-model="input2" label="Name" theme="day" disabled />
+            <PasswordInput v-model="password" label="Password" theme="day" />
+            <PasswordInput v-model="password" label="Password" theme="day" active />
+            <PasswordInput v-model="password" label="Password" theme="day" error />
+            <PasswordInput v-model="password" label="Password" theme="day" disabled />
+          </div>
+          <div class="flex space-x-4">
           </div>
           <div class="flex space-x-4">
             <Textarea placeholder="Name" theme="day" cols="5" rows="6" />
@@ -78,6 +80,8 @@
             <FloatingInput v-model="input2" label="Name" theme="night" disabled />
           </div>
           <div class="flex space-x-4">
+          </div>
+          <div class="flex space-x-4">
             <Textarea placeholder="Name" theme="night" cols="5" rows="6" />
             <Textarea placeholder="Name" theme="night" active value="xxx" cols="5" rows="6" />
             <Textarea placeholder="Name" theme="night" error value="xxx" cols="5" rows="6" />
@@ -99,7 +103,7 @@
 import { Fragment } from 'vue-fragment'
 import Radio from '@/components/radio/radio'
 import Checkbox from '@/components/checkbox/checkbox'
-import { Input, FloatingInput } from '@/components/input/index'
+import { Input, FloatingInput, PasswordInput } from '@/components/input/index'
 import { Textarea, FloatingTextarea } from '@/components/textarea/index'
 
 export default {
@@ -111,6 +115,7 @@ export default {
     FloatingInput,
     Textarea,
     FloatingTextarea,
+    PasswordInput,
   },
   data() {
     return {
@@ -118,6 +123,7 @@ export default {
       person2: 'y',
       input2: 'xxx',
       textarea2: 'xxx',
+      password: '',
     }
   },
 }
