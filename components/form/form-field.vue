@@ -16,6 +16,14 @@
       v-on="$listeners"
       :type="type"
     />
+    <PasswordInput
+      :label="label"
+      :theme="theme"
+      :disabled="disabled"
+      :error="isError"
+      :value="value"
+      v-on="$listeners"
+    />
     <small
       :class="{
         'form-field-support caption-2 mt-1 block px-4': true,
@@ -30,7 +38,7 @@
 <script>
 import theme, { themes } from '@/mixins/theme'
 import textfieldProps from '@/mixins/textfield'
-import FloatingInput from '@/components/input/floating-input'
+import { FloatingInput, PasswordInput } from '@/components/input/index'
 
 export default {
   mixins: [theme, textfieldProps],
@@ -54,6 +62,7 @@ export default {
   },
   components: {
     FloatingInput,
+    PasswordInput,
   },
   data() {
     return {
