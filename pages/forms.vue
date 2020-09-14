@@ -35,8 +35,6 @@
             <PasswordInput v-model="password" label="Password" theme="day" disabled />
           </div>
           <div class="flex space-x-4">
-          </div>
-          <div class="flex space-x-4">
             <Textarea placeholder="Name" theme="day" cols="5" rows="6" />
             <Textarea placeholder="Name" theme="day" active value="xxx" cols="5" rows="6" />
             <Textarea placeholder="Name" theme="day" error value="xxx" cols="5" rows="6" />
@@ -80,6 +78,10 @@
             <FloatingInput v-model="input2" label="Name" theme="night" disabled />
           </div>
           <div class="flex space-x-4">
+            <PasswordInput v-model="password" label="Password" theme="night" />
+            <PasswordInput v-model="password" label="Password" theme="night" active />
+            <PasswordInput v-model="password" label="Password" theme="night" error />
+            <PasswordInput v-model="password" label="Password" theme="night" disabled />
           </div>
           <div class="flex space-x-4">
             <Textarea placeholder="Name" theme="night" cols="5" rows="6" />
